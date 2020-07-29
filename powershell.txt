@@ -1,0 +1,69 @@
+get help:
+Get-Help [cmdletname] [-Online]
+
+get powershell command history file path:
+(Get-PSReadLineOption).HistorySavePath
+
+get powershell command history:
+Get-Content -Path (Get-PSReadlineOption).HistorySavePath
+
+open history file with default action:
+Invoke-Item -Path (Get-PSReadlineOption).HistorySavePath
+
+get actual cmdletname of specific aliasname:
+Get-Alias -name [aliasname]
+
+set alias:
+Set-Alias -Name [aliasname] -Value [cmdlet|external program]
+
+use function to extend alias:
+function test_connect {Test-Connection -Count 2 -ComputerName $args}    /* parameter placeholder must be $args, not $arg!! */
+Set-Alias -Name tc -Value test_connect
+
+Export alias:
+Export-Alias alias.ps1
+
+Import alias:
+Import-Alias alias.ps1
+
+current object in pipe:
+$_
+
+list enviroment variable:
+ls env:
+
+get powershell supported driver:
+Get-PSDrive
+
+get function implementation:
+$function:functionname
+
+specify variable type:
+[TYPE]variable = value
+
+define an array:
+$array = 1, "2"
+$array = 5..7
+
+get element from array:
+$array[0, 3]
+
+append to array:
+$array += "5"
+
+copy array to another:
+$new_array = $array.Clone()
+
+specify array type:
+[TYPE[]]array = value
+
+define a hash table:
+$hash = @{name1 = value1; name2 = value2}
+
+add/update element to hash table:
+$hash.key = value
+
+delete element from hash table:
+$hash.Remove("key")
+
+
